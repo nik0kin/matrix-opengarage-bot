@@ -1,0 +1,7 @@
+{
+  "homeserverUrl": "https://localhost",
+  "matrixAccessToken": "YourSecretAccessToken",
+  "mqttBroker": "mqtt://127.0.0.1",
+  "mqttTopic": "My OpenGarage",
+  "autoJoin": false
+}

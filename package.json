@@ -1,0 +1,58 @@
+{
+  "name": "matrix-opengarage-bot",
+  "description": "A chatbot that can open your garage",
+  "version": "0.1.0-dev",
+  "author": "Nik0kin",
+  "bugs": {
+    "url": "https://github.com/nik0kin/matrix-opengarage-bot/issues"
+  },
+  "dependencies": {
+    "marked": "^2.0.6",
+    "matrix-bot-sdk": "^0.5.18",
+    "mqtt": "^4.2.6",
+    "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.12",
+    "@types/marked": "^2.0.3",
+    "@types/mqtt": "^2.5.0",
+    "@types/node": "^11.10.5",
+    "@types/node-fetch": "^2.5.7",
+    "@typescript-eslint/eslint-plugin": "^4.25.0",
+    "@typescript-eslint/parser": "^4.25.0",
+    "eslint": "^7.27.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "jest": "^27.0.1",
+    "nodemon": "^2.0.7",
+    "prettier": "^2.3.0",
+    "ts-jest": "^27.0.1",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.3.2"
+  },
+  "files": [
+    "dist"
+  ],
+  "homepage": "https://github.com/nik0kin/matrix-opengarage-bot",
+  "keywords": [
+    "Bot",
+    "Matrix",
+    "OpenGarage"
+  ],
+  "license": "AGPL-3.0-or-later",
+  "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nik0kin/matrix-opengarage-bot.git"
+  },
+  "scripts": {
+    "build": "tsc --module commonjs",
+    "build:watch": "tsc --module commonjs -w",
+    "coverage": "jest --collectCoverageFrom=src/**/*.ts --coverage",
+    "dev": "nodemon src/bootstrap.ts",
+    "lint": "eslint . --ext .ts",
+    "start": "ts-node src/bootstrap.ts",
+    "test": "jest --watch"
+  },
+  "types": "dist/index.d.ts"
+}

@@ -1,0 +1,52 @@
+export interface Settings {
+  //// SETUP ////
+
+  /**
+   * Matrix Homeserver
+   *  Eg. "https://matrix-federation.matrix.org"
+   */
+  homeserverUrl: string;
+  /**
+   * Access Token of the bot account
+   *   See https://t2bot.io/docs/access_tokens/ for a simple way to generate
+   */
+  matrixAccessToken: string;
+  /**
+   * MQTT broker server root
+   *  Eg. "mqtt://127.0.0.1" or "mqtt://your-domain.example.com"
+   */
+  mqttBroker: string;
+  /**
+   * MQTT broker topic that your OpenGarage device is sub/pub-ing too
+   *  Eg. "My OpenGarage"
+   */
+  mqttTopic: string;
+  /**
+   * MQTT broker login username
+   */
+  mqttUsername: string | undefined;
+  /**
+   * MQTT broker login password
+   */
+  mqttPassword: string | undefined;
+  /**
+   * File used as temporary storage by the bot
+   *   Defaults to `bot-storage.json`
+   */
+  storageFile?: string;
+
+  //// OPERATIONS ////
+
+  /**
+   * Words to prompt the bot to respond.
+   *   Defaults to `'!opengarage', '!og'`
+   */
+  promptWords?: string[];
+
+  /**
+   * Should the bot auto accept invites to rooms?
+   *    (Probably not if you want your garage door access private)
+   *   Defaults to `false`
+   */
+  autoJoin?: boolean;
+}
