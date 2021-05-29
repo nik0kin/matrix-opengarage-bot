@@ -2,6 +2,29 @@
 
 Talk to your garage.
 
+Send commands to your [OpenGarage](https://opengarage.io/) device via [Matrix](https://matrix.org/) using a client like [Element](https://element.io/)
+
+```
+Human: !og status
+Bot: OpenGarage Status:
+  - Closed
+  - Vehicle Detected
+  - Distance: 140 cm
+
+Human: !og click
+Bot: Issued click command OpenGarage to My OpenGarage
+
+Bot: Notify: My OpenGarage just OPENED!
+```
+
+## Pre-requisites (other than a matrix server)
+
+- A modern version of Node.js
+- A MQTT broker
+- A OpenGarage device configured to publish/subscribe to the above MQTT broker on a given topic (defaults to the device's name if not configured)
+
+The bot will talk to the MQTT broker to interact with the OpenGarage device. Therefore no OpenGarage credentials are required.
+
 ## Develop
 
 ```
@@ -14,7 +37,8 @@ yarn dev
 ### Bootstrap mode
 
 ```
-# clone repo
+# clone this repo and cd inside of it
+
 yarn install
 
 cp bot-config.sample.json bot-config.json
@@ -42,12 +66,20 @@ startBot(config);
 
 ## Config
 
-You must have a MQTT broker setup with OpenGarage for this bot to talk to.
-
 See [settings.ts](./src/settings.ts) for config descriptions
 
 ## References
 
 ### OpenGarage
 
+MQTT notifications are turned on/off via the OpenGarage web ui or mobile app.
+
 https://github.com/OpenGarage/OpenGarage-Firmware/tree/master/docs
+
+### MQTT
+
+[List of MQTT brokers](https://en.wikipedia.org/wiki/Comparison_of_MQTT_implementations)
+
+## Notes
+
+This bot is not specific to the OpenGarage device, if another device publish/subscribed to the [same topics](./src/settings.ts) on MQTT it'd work too.

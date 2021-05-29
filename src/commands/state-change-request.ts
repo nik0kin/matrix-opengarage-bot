@@ -18,7 +18,6 @@ export async function stateChangeRequestCommand(
       }
     }
   );
-  const message =
-    `Issued **${state}** command OpenGarage to ` + settings.mqttDeviceTopic;
+  const message = `Issued **${state}** command OpenGarage to **${settings.mqttDeviceTopic}**`;
   reply(message, marked(message));
 }
