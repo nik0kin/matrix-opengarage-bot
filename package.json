@@ -1,7 +1,7 @@
 {
   "name": "matrix-opengarage-bot",
   "description": "A chatbot that can open your garage",
-  "version": "0.1.0-dev",
+  "version": "0.1.0-rc",
   "author": "Nik0kin",
   "bugs": {
     "url": "https://github.com/nik0kin/matrix-opengarage-bot/issues"
@@ -9,15 +9,12 @@
   "dependencies": {
     "marked": "^2.0.6",
     "matrix-bot-sdk": "^0.5.18",
-    "mqtt": "^4.2.6",
-    "node-fetch": "^2.6.1"
+    "mqtt": "^4.2.6"
   },
   "devDependencies": {
     "@types/jest": "^24.0.12",
     "@types/marked": "^2.0.3",
-    "@types/mqtt": "^2.5.0",
     "@types/node": "^11.10.5",
-    "@types/node-fetch": "^2.5.7",
     "@typescript-eslint/eslint-plugin": "^4.25.0",
     "@typescript-eslint/parser": "^4.25.0",
     "eslint": "^7.27.0",

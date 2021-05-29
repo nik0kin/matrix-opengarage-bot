@@ -36,6 +36,8 @@ yarn dev
 
 ### Bootstrap mode
 
+Running as a background process via pm2:
+
 ```
 # clone this repo and cd inside of it
 
@@ -49,6 +51,8 @@ pm2 start pm2.config.js
 ```
 
 ### As a Node.js package
+
+Programatically with javascript/typescript:
 
 ```
 yarn add matrix-opengarage-bot
@@ -82,4 +86,4 @@ https://github.com/OpenGarage/OpenGarage-Firmware/tree/master/docs
 
 ## Notes
 
-This bot is not specific to the OpenGarage device, if another device publish/subscribed to the [same topics](./src/settings.ts) on MQTT it'd work too.
+This bot is not specific to the OpenGarage device, if another device published/subscribed to the [same topics](./src/settings.ts) on MQTT it'd work too.

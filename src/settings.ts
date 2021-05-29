@@ -12,8 +12,9 @@ export interface Settings {
    */
   matrixAccessToken: string;
   /**
-   * MQTT broker server root
-   *  Eg. "mqtt://127.0.0.1" or "mqtt://your-domain.example.com"
+   * MQTT broker server url
+   *  Passed as a parameter to https://github.com/mqttjs/MQTT.js/blob/master/README.md#mqttconnecturl-options
+   *  Eg. "mqtt://127.0.0.1" or "mqtt://your-domain.example.com:3130"
    */
   mqttBroker: string;
   /**

@@ -1,4 +1,5 @@
 /* eslint-disable no-console */
+import { MqttClient } from 'mqtt';
 import { stateChangeRequestCommand } from './commands/state-change-request';
 import { helpCommand } from './commands/help';
 import { statusCommand } from './commands/status';
@@ -15,7 +16,6 @@ import {
   STATE_CHANGE,
 } from './opengarage';
 import { Settings } from './settings';
-import { MqttClient } from 'mqtt';
 import { createError } from './error';
 
 /**
