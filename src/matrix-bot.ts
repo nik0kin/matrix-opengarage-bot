@@ -6,7 +6,9 @@ import {
 import { Settings } from './settings';
 
 export function createMatrixClient(settings: Required<Settings>) {
-  const storage = new SimpleFsStorageProvider(settings.storageFile);
+  const storage = settings.storageFile
+    ? new SimpleFsStorageProvider(settings.storageFile)
+    : undefined;
   const client = new MatrixClient(
     settings.homeserverUrl,
     settings.matrixAccessToken,

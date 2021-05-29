@@ -9,8 +9,16 @@ export async function stateChangeRequestCommand(
   state: STATE_CHANGE,
   reply: (message: string, formattedMessage?: string) => void
 ) {
-  mqttClient.publish(settings.mqttTopic + SUB_IN_STATE, 'click');
+  mqttClient.publish(
+    settings.mqttDeviceTopic + SUB_IN_STATE,
+    'click',
+    (error) => {
+      if (error) {
+        console.error(`${state} command failed to publish`, error);
+      }
+    }
+  );
   const message =
-    `Issued **${state}** command OpenGarage to ` + settings.mqttTopic;
+    `Issued **${state}** command OpenGarage to ` + settings.mqttDeviceTopic;
   reply(message, marked(message));
 }

@@ -20,18 +20,18 @@ export interface Settings {
    * MQTT broker topic that your OpenGarage device is sub/pub-ing too
    *  Eg. "My OpenGarage"
    */
-  mqttTopic: string;
+  mqttDeviceTopic: string;
   /**
-   * MQTT broker login username
+   * MQTT broker username
    */
   mqttUsername: string | undefined;
   /**
-   * MQTT broker login password
+   * MQTT broker password
    */
   mqttPassword: string | undefined;
   /**
    * File used as temporary storage by the bot
-   *   Defaults to `bot-storage.json`
+   *   Optional. Eg. `bot-storage.json`
    */
   storageFile?: string;
 

@@ -44,41 +44,36 @@ export async function startBot(userSettings: Settings) {
 
   // Setup MQTT pubs/subs
   let lastOutJSON: ControllerParameters | undefined;
-  const openGarageDeviceTopic = settings.mqttTopic;
+  const deviceTopic = settings.mqttDeviceTopic;
 
   mqttClient.on('connect', function () {
     [PUB_OUT_NOTIFY, PUB_OUT_JSON].forEach((topicPath) => {
-      mqttClient.subscribe(openGarageDeviceTopic + topicPath, function (err) {
+      mqttClient.subscribe(deviceTopic + topicPath, function (err) {
         if (err) {
-          console.error(openGarageDeviceTopic + topicPath + ' sub err', err);
+          console.error(deviceTopic + topicPath + ' sub err', err);
         }
       });
     });
   });
 
   mqttClient.on('message', function (topic, message) {
-    if (topic === openGarageDeviceTopic + PUB_OUT_NOTIFY) {
+    if (topic === deviceTopic + PUB_OUT_NOTIFY) {
       sendMessageToAllJoinedRooms(
         botClient,
         'Notify: ' + message.toString()
       ).catch((err) => {
         if (err) {
-          console.error(
-            openGarageDeviceTopic + PUB_OUT_NOTIFY + ' message err',
-            err
-          );
+          console.error(deviceTopic + PUB_OUT_NOTIFY + ' message err', err);
         }
       });
     }
 
-    if (topic === openGarageDeviceTopic + PUB_OUT_JSON) {
+    if (topic === deviceTopic + PUB_OUT_JSON) {
       try {
         lastOutJSON = JSON.parse(message.toString());
       } catch (e) {
         console.error(
-          `A problem occured while parsing ${
-            openGarageDeviceTopic + PUB_OUT_JSON
-          } value`,
+          `A problem occured while parsing ${deviceTopic + PUB_OUT_JSON} value`,
           e
         );
       }
