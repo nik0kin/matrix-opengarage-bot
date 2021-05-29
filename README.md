@@ -45,3 +45,9 @@ startBot(config);
 You must have a MQTT broker setup with OpenGarage for this bot to talk to.
 
 See [settings.ts](./src/settings.ts) for config descriptions
+
+## References
+
+### OpenGarage
+
+https://github.com/OpenGarage/OpenGarage-Firmware/tree/master/docs

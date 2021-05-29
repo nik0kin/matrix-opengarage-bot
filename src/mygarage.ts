@@ -1,3 +1,4 @@
+export const PUB_OUT_NOTIFY = '/OUT/NOTIFY';
 export const PUB_OUT_JSON = '/OUT/JSON';
 
 export enum DOOR {
