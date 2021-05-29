@@ -1,6 +1,6 @@
 import marked from 'marked';
 import { getStatusString } from '../message-formatter';
-import { ControllerParameters } from '../mygarage';
+import { ControllerParameters } from '../opengarage';
 
 export async function statusCommand(
   reply: (message: string, formattedMessage?: string) => void,

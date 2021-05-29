@@ -1,5 +1,6 @@
 export const PUB_OUT_NOTIFY = '/OUT/NOTIFY';
 export const PUB_OUT_JSON = '/OUT/JSON';
+export const SUB_IN_STATE = '/IN/STATE';
 
 export enum DOOR {
   CLOSED = 0,
@@ -18,3 +19,5 @@ export interface ControllerParameters {
   vehicle: VEHICLE;
   rcnt: number; // read count
 }
+
+export type STATE_CHANGE = 'click' | 'open' | 'close';

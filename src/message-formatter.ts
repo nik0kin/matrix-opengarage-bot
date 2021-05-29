@@ -1,4 +1,4 @@
-import { ControllerParameters, DOOR, VEHICLE } from './mygarage';
+import { ControllerParameters, DOOR, VEHICLE } from './opengarage';
 
 export function getStatusString(statusJSON: ControllerParameters) {
   return `OpenGarage Status:

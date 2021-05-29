@@ -17,8 +17,11 @@ Usage:
 ${settings.promptWords.map((word) => `  - \`${word} [COMMAND]\``).join('\n')}
 
 Commands:
-  - \`help\`         Display this help message
+  - \`click\`        Trigger OpenGarage action regardless of the state of the door
+  - \`open\`         Trigger OpenGarage action if door is not already in the OPEN state
+  - \`close\`        Trigger OpenGarage action if door is not already in the CLOSED state
   - \`status\`       Show OpenGarage controller parameters
+  - \`help\`         Display this help message
 `;
 
   reply(message, marked(message));

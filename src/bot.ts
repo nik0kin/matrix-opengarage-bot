@@ -1,4 +1,5 @@
 /* eslint-disable no-console */
+import { stateChangeRequestCommand } from './commands/state-change-request';
 import { helpCommand } from './commands/help';
 import { statusCommand } from './commands/status';
 import {
@@ -7,7 +8,12 @@ import {
   sendMessageToAllJoinedRooms,
 } from './matrix-bot';
 import { createMqttClient } from './mqtt';
-import { ControllerParameters, PUB_OUT_NOTIFY, PUB_OUT_JSON } from './mygarage';
+import {
+  ControllerParameters,
+  PUB_OUT_NOTIFY,
+  PUB_OUT_JSON,
+  STATE_CHANGE,
+} from './opengarage';
 import { Settings } from './settings';
 import { MqttClient } from 'mqtt';
 import { createError } from './error';
@@ -109,6 +115,16 @@ export async function startBot(userSettings: Settings) {
     switch (command.toLowerCase()) {
       case 'help':
         helpCommand(settings, reply);
+        break;
+      case 'click':
+      case 'open':
+      case 'close':
+        stateChangeRequestCommand(
+          settings,
+          mqttClient,
+          command.toLowerCase() as STATE_CHANGE,
+          reply
+        );
         break;
       case 'status':
         statusCommand(reply, lastOutJSON);
